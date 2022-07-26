@@ -1,0 +1,14 @@
+.container {
+    margin: 0;
+    padding: 0; 
+  }
+  
+  .col-md-2 {
+    background-color: #f5f7fa;
+  }
+  
+  .col-md-10 {
+  
+    background-color: #faf5f6;
+    
+  }

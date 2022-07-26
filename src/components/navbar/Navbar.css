@@ -1,0 +1,21 @@
+.navbar {
+    height: 10vh;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.credentials {
+    display: flex;
+    flex-direction: row;
+}
+
+.avatar {
+    width: 3vw;
+    border-radius: 50%;
+}
+
+
+
