@@ -26,6 +26,11 @@ const Sidebar = () => {
     navigate("/inbox");
   };
 
+  const handleClick6 = (e) => {
+    e.preventDefault();
+    navigate("/reports");
+  };
+
   return (
     <div className="sidebar">
       <div className="sidebar-header">
@@ -82,7 +87,7 @@ const Sidebar = () => {
               <h3 style={{ fontSize: "2rem", fontWeight: "900" }}>Projects</h3>
             </div>
           </div>
-          <div className="sidebar-body-nav-item">
+          <div onClick={handleClick6} className="sidebar-body-nav-item">
             <div className="sidebar-body-nav-item-icon mb-1">
               <AssessmentIcon style={{ fontSize: "2rem" }} />
             </div>
