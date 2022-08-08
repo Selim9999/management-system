@@ -31,6 +31,9 @@ const IssuesBox = (props) => {
           </div>
           <div className="modal-body">
             <form className="d-grid gap-3">
+              <div className="text">
+                <h5>Choose current issue or a dependancy</h5>
+              </div>
               {issuesList1.map((issue, index) => {
                 return (
                   <div>

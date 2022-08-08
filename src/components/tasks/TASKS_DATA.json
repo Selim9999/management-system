@@ -13,9 +13,9 @@
     "task_group": "Task group",
     "description": "Docker repo certificates update",
     "ref": "aeaeae",
-    "Technical_\ndependencies\nIDs": "aaaaaaaa",
-    "Temporal_\ndependencies\nIDs": "",
-    "Computed_dependency_IDs": "",
+    "technical_dependencies": "aaaaaaaa",
+    "temporal_dependencies": "",
+    "computed_dependencies": "",
     "actions": ""
   
 },
@@ -34,9 +34,9 @@
     "task_group": "",
     "description": "Dockerize one Yo services and show Gordana how to do the rest",
     "ref": "",
-    "Technical_\ndependencies\nIDs": "",
-    "Temporal_\ndependencies\nIDs": "",
-    "Computed_dependency_IDs": "",
+    "technical_dependencies": "",
+    "temporal_dependencies": "",
+    "computed_dependencies": "",
     "actions": ""
     
 },
@@ -55,9 +55,9 @@
     "task_group": "",
     "description": "Send SMS when a server is down (having issues)",
     "ref": "",
-    "Technical_\ndependencies\nIDs": "",
-    "Temporal_\ndependencies\nIDs": "",
-    "Computed_dependency_IDs": "",
+    "technical_dependencies": "",
+    "temporal_dependencies": "",
+    "computed_dependencies": "",
     "actions": ""
    
 },
@@ -76,9 +76,9 @@
     "task_group": "",
     "description": "Verify paypal account. Make mercury bank account. Talk to Derek",
     "ref": "",
-    "Technical_\ndependencies\nIDs": "",
-    "Temporal_\ndependencies\nIDs": "",
-    "Computed_dependency_IDs": "",
+    "technical_dependencies": "",
+    "temporal_dependencies": "",
+    "computed_dependencies": "",
     "actions": ""
   
 },
@@ -97,9 +97,9 @@
     "task_group": "",
     "description": "Convert your YS projects to Spring boot",
     "ref": "",
-    "Technical_\ndependencies\nIDs": "",
-    "Temporal_\ndependencies\nIDs": "",
-    "Computed_dependency_IDs": "69",
+    "technical_dependencies": "",
+    "temporal_dependencies": "",
+    "computed_dependencies": "69",
     "actions": ""
    
 },
@@ -118,9 +118,9 @@
     "task_group": "",
     "description": "Dockerize the rest of Yo services - talk to Janko",
     "ref": "",
-    "Technical_\ndependencies\nIDs": "",
-    "Temporal_\ndependencies\nIDs": "",
-    "Computed_dependency_IDs": "59",
+    "technical_dependencies": "",
+    "temporal_dependencies": "",
+    "computed_dependencies": "59",
     "actions": ""
     
 },
@@ -139,9 +139,9 @@
     "task_group": "",
     "description": "Convert your YS projects to Spring boot",
     "ref": "",
-    "Technical_\ndependencies\nIDs": "45",
-    "Temporal_\ndependencies\nIDs": "NONE",
-    "Computed_dependency_IDs": "74",
+    "technical_dependencies": "45",
+    "temporal_dependencies": "NONE",
+    "computed_dependencies": "74",
     "actions": ""
     
 },
@@ -160,9 +160,9 @@
     "task_group": "",
     "description": "Styling v3",
     "ref": "",
-    "Technical_\ndependencies\nIDs": "",
-    "Temporal_\ndependencies\nIDs": "",
-    "Computed_dependency_IDs": "1156",
+    "technical_dependencies": "",
+    "temporal_dependencies": "",
+    "computed_dependencies": "1156",
     "actions": ""
     
 }

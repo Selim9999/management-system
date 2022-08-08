@@ -1,172 +1,112 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import TASKS_DATA from "./TASKS_DATA.json";
-import { useTable, useRowSelect } from "react-table";
-import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import EditIcon from "@mui/icons-material/Edit";
-import DeleteIcon from "@mui/icons-material/Delete";
 import AddIcon from "@mui/icons-material/Add";
+import ReadOnlyRow from "./ReadOnlyRow";
+import EditableRow from "./EditableRow";
 import "./Tasks.css";
 
 const Tasks = () => {
-  const COLUMNS = [
-    {
-      Header: "Id",
-      Max_width: 100,
-      Footer: "Id",
-      accessor: "id",
-    },
-    {
-      Header: "Username",
-      Footer: "Id",
-      accessor: "task_id",
-    },
-    {
-      Header: "Label",
-      Footer: "Label",
-      accessor: "label",
-    },
-    {
-      Header: "Sublabel",
-      Footer: "Sublabel",
-      accessor: "sublabel",
-    },
-    {
-      Header: "Priority",
-      Footer: "Priority",
-      accessor: "priority",
-    },
-    {
-      Header: "Duration",
-      Footer: "Duration",
-      accessor: "duration",
-    },
-    {
-      Header: "Duration Confidence",
-      Footer: "Duration Confidence",
-      accessor: "duration_confidence",
-    },
-    {
-      Header: "Start Date",
-      Footer: "Start Date",
-      accessor: "start_date",
-    },
-    {
-      Header: "End Date",
-      Footer: "End Date",
-      accessor: "end_date",
-    },
-    {
-      Header: "Status",
-      Footer: "Status",
-      accessor: "status",
-    },
+  const [data, setData] = useState(TASKS_DATA);
 
-    {
-      Header: "Complexity",
-      Footer: "Complexity",
-      accessor: "complexity",
-    },
-    {
-      Header: "Task Group",
-      Footer: "Task Group",
-      accessor: "task_Group",
-    },
-    {
-      Header: "Description",
-      Footer: "Description",
-      accessor: "description",
-    },
-    {
-      Header: "#REF!",
-      Footer: "#REF!",
-      accessor: "ref",
-    },
-    {
-      Header: "Technical \ndependencies\nIDs",
-      Footer: "Technical \ndependencies\nIDs",
-      accessor: "Technical_\ndependencies\nIDs",
-    },
-    {
-      Header: "Temporal \ndependencies\nIDs",
-      Footer: "Temporal \ndependencies\nIDs",
-      accessor: "Temporal_\ndependencies\nIDs",
-    },
-    {
-      Header: "Computed dependency IDs",
-      Footer: "Computed dependency IDs",
-      accessor: "Computed_dependency_IDs",
-    },
-  ];
+  const [editDataId, setEditDataId] = useState(null);
 
-  const columns = useMemo(() => COLUMNS, []);
+  const [editFormData, setEditFormData] = useState({
+    id: "",
+    username: "",
+    label: "",
+    sublabel: "",
+    priority: "",
+    duration: "",
+    duration_confidence: "",
+    start_date: "",
+    end_date: "",
+    status: "",
+    complexity: "",
+    task_group: "",
+    description: "",
+    ref: "",
+    technical_dependencies: "",
+    temporal_dependencies: "",
+    computed_dependencies: "",
+  });
 
-  let data = useMemo(() => TASKS_DATA, []);
-
-  const [bassa, setBassa] = useState(TASKS_DATA);
-
-  // when delete button is clicked, delete the row from the table
-
-  const deleteRow = (id) => {
-    const newData = data.filter((row) => row.id !== id);
-
-    data = newData;
-
-    setBassa(data);
-
+  const onDelete = (id) => {
+    setData(data.filter((item) => item.id !== id));
     console.log(data);
   };
 
-  //display the table without the deleted row
+  const handleEditClick = (event, item) => {
+    event.preventDefault();
+    setEditDataId(item.id);
 
-  const tableInstance = useTable(
-    {
-      columns,
-      data,
-    },
-    useRowSelect,
-    (hooks) => {
-      hooks.visibleColumns.push((columns) => [
-        ...columns,
-        {
-          id: "control",
-          Header: () => null,
-          Cell: ({ row }) => {
-            return (
-              <div className="controls d-flex gap-3">
-                <button
-                  className="btn btn-primary btn-sm"
-                  onClick={() => {
-                    console.log();
-                  }}
-                >
-                  <EditIcon />
-                </button>
-                <button
-                  className="btn btn-danger btn-sm"
-                  onClick={() => {
-                    console.log(row.original.id);
-                    deleteRow(row.original.id);
-                  }}
-                >
-                  <DeleteIcon />
-                </button>
-              </div>
-            );
-          },
-        },
-      ]);
-    }
-  );
+    const formValues = {
+      id: item.id,
+      username: item.username,
+      label: item.label,
+      sublabel: item.sublabel,
+      priority: item.priority,
+      duration: item.duration,
+      duration_confidence: item.duration_confidence,
+      start_date: item.start_date,
+      end_date: item.end_date,
+      status: item.status,
+      complexity: item.complexity,
+      task_group: item.task_group,
+      description: item.description,
+      ref: item.ref,
+      technical_dependencies: item.technical_dependencies,
+      temporal_dependencies: item.temporal_dependencies,
+      computed_dependencies: item.computed_dependencies,
+    };
 
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    footerGroups,
-    rows,
-    prepareRow,
-  } = tableInstance;
+    setEditFormData(formValues);
+  };
+
+  const handleEditFormChange = (event) => {
+    event.preventDefault();
+
+    const fieldName = event.target.getAttribute("name");
+    const fieldValue = event.target.value;
+
+    const newFormData = { ...editFormData };
+
+    newFormData[fieldName] = fieldValue;
+
+    setEditFormData(newFormData);
+  };
+
+  const handleEditFormSubmit = (event) => {
+    event.preventDefault();
+
+    const editedData = {
+      id: editDataId,
+      username: editFormData.username,
+      label: editFormData.label,
+      sublabel: editFormData.sublabel,
+      priority: editFormData.priority,
+      duration: editFormData.duration,
+      duration_confidence: editFormData.duration_confidence,
+      start_date: editFormData.start_date,
+      end_date: editFormData.end_date,
+      status: editFormData.status,
+      complexity: editFormData.complexity,
+      task_group: editFormData.task_group,
+      description: editFormData.description,
+      ref: editFormData.ref,
+      technical_dependencies: editFormData.technical_dependencies,
+      temporal_dependencies: editFormData.temporal_dependencies,
+      computed_dependencies: editFormData.computed_dependencies,
+    };
+
+    const newData = [...data];
+
+    const index = newData.findIndex((item) => item.id === editedData.id);
+
+    newData[index] = editedData;
+
+    setData(newData);
+    setEditDataId(null);
+  };
 
   return (
     <div className="tasks container-fluid">
@@ -182,39 +122,87 @@ const Tasks = () => {
         </button>
       </div>
       <div className="react-table mt-5">
-        <table {...getTableProps()}>
-          <thead>
-            {headerGroups.map((headerGroup) => (
-              <tr {...headerGroup.getHeaderGroupProps()}>
-                {headerGroup.headers.map((column) => (
-                  <th
-                    className="bg-primary-dark text-white p-4 text-center"
-                    {...column.getHeaderProps()}
-                  >
-                    {column.render("Header")}
-                  </th>
-                ))}
+        <form onSubmit={handleEditFormSubmit}>
+          <table>
+            <thead>
+              <tr>
+                <th className="bg-primary-dark text-white p-4 text-center">
+                  Id
+                </th>
+                <th className="bg-primary-dark text-white p-4 text-center">
+                  Username
+                </th>
+                <th className="bg-primary-dark text-white p-4 text-center">
+                  Label
+                </th>
+                <th className="bg-primary-dark text-white p-4 text-center">
+                  Sublabel
+                </th>
+                <th className="bg-primary-dark text-white p-4 text-center">
+                  Priority
+                </th>
+                <th className="bg-primary-dark text-white p-4 text-center">
+                  Duration
+                </th>
+                <th className="bg-primary-dark text-white p-4 text-center">
+                  Duration Confidence
+                </th>
+                <th className="bg-primary-dark text-white p-4 text-center">
+                  Start Date
+                </th>
+                <th className="bg-primary-dark text-white p-4 text-center">
+                  End Date
+                </th>
+                <th className="bg-primary-dark text-white p-4 text-center">
+                  Status
+                </th>
+                <th className="bg-primary-dark text-white p-4 text-center">
+                  Complexity
+                </th>
+                <th className="bg-primary-dark text-white p-4 text-center">
+                  Task Group
+                </th>
+                <th className="bg-primary-dark text-white p-4 text-center">
+                  Description
+                </th>
+                <th className="bg-primary-dark text-white p-4 text-center">
+                  #REF!
+                </th>
+                <th className="bg-primary-dark text-white p-4 text-center">
+                  Technical \ndependencies\nIDs
+                </th>
+                <th className="bg-primary-dark text-white p-4 text-center">
+                  Temporal_\ndependencies\nIDs
+                </th>
+                <th className="bg-primary-dark text-white p-4 text-center">
+                  Computed_dependency_IDs
+                </th>
+                <th className="bg-primary-dark text-white p-4 text-center">
+                  Actions
+                </th>
               </tr>
-            ))}
-          </thead>
-          <tbody
-            {...getTableBodyProps()}
-            className="bg-primary-light text-primary-dark overflow-scroll"
-          >
-            {rows.map((row, i) => {
-              prepareRow(row);
-              return (
-                <tr {...row.getRowProps()}>
-                  {row.cells.map((cell) => {
-                    return (
-                      <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
-                    );
-                  })}
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="bg-primary-light text-primary-dark overflow-scroll">
+              {data.map((item, index) => (
+                <>
+                  {editDataId === item.id ? (
+                    <EditableRow
+                      editFormData={editFormData}
+                      handleEditFormChange={handleEditFormChange}
+                    />
+                  ) : (
+                    <ReadOnlyRow
+                      item={item}
+                      index={index}
+                      onDelete={onDelete}
+                      handleEditClick={handleEditClick}
+                    />
+                  )}
+                </>
+              ))}
+            </tbody>
+          </table>
+        </form>
       </div>
     </div>
   );

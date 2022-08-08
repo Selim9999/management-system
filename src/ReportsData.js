@@ -4,8 +4,8 @@ export const ReportsData = [
     work: "Dashboard UI",
     hours: "8",
     issues: "design",
-    blockings: "UI",
-    next: "usecase form",
+    blockings: "-",
+    next: "-",
     statistics: "completed",
   },
 ];

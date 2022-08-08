@@ -34,6 +34,12 @@ const IssuesPulldown = (props) => {
                   return <option>{issue.name}</option>;
                 })}
               </select>
+              <textarea
+                className="form-control"
+                id="exampleFormControlTextarea1"
+                rows="3"
+                placeholder="Description"
+              ></textarea>
               <button
                 style={{ width: "10rem" }}
                 type="button"
