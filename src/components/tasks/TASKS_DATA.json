@@ -16,7 +16,7 @@
     "technical_dependencies": "aaaaaaaa",
     "temporal_dependencies": "",
     "computed_dependencies": "",
-    "actions": ""
+    "new_column": "eeaea"
   
 },
 {
@@ -37,7 +37,7 @@
     "technical_dependencies": "",
     "temporal_dependencies": "",
     "computed_dependencies": "",
-    "actions": ""
+    "new_column": "eaea"
     
 },
 {
@@ -58,7 +58,7 @@
     "technical_dependencies": "",
     "temporal_dependencies": "",
     "computed_dependencies": "",
-    "actions": ""
+    "new_column": "eaea"
    
 },
 {
@@ -79,7 +79,7 @@
     "technical_dependencies": "",
     "temporal_dependencies": "",
     "computed_dependencies": "",
-    "actions": ""
+    "new_column": "eaea"
   
 },
 {
@@ -100,7 +100,7 @@
     "technical_dependencies": "",
     "temporal_dependencies": "",
     "computed_dependencies": "69",
-    "actions": ""
+    "new_column": "eaea"
    
 },
 {
@@ -121,7 +121,7 @@
     "technical_dependencies": "",
     "temporal_dependencies": "",
     "computed_dependencies": "59",
-    "actions": ""
+    "new_column": "eaea"
     
 },
 {
@@ -142,7 +142,7 @@
     "technical_dependencies": "45",
     "temporal_dependencies": "NONE",
     "computed_dependencies": "74",
-    "actions": ""
+    "new_column": "eeee"
     
 },
 {
@@ -163,7 +163,6 @@
     "technical_dependencies": "",
     "temporal_dependencies": "",
     "computed_dependencies": "1156",
-    "actions": ""
-    
+    "new_column": "eaea"   
 }
 ]

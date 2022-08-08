@@ -24,6 +24,8 @@ const ReadOnlyRow = ({ item, index, onDelete, handleEditClick }) => {
       <td>{item.technical_dependencies}</td>
       <td>{item.temporal_dependencies}</td>
       <td>{item.computed_dependencies}</td>
+      <td>{item.new_column}</td>
+
       <td>
         <div className="d-flex gap-2">
           <button className="btn btn-success">

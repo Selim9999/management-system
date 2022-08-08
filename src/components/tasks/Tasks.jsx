@@ -178,8 +178,9 @@ const Tasks = () => {
                   Computed_dependency_IDs
                 </th>
                 <th className="bg-primary-dark text-white p-4 text-center">
-                  Actions
+                  new column
                 </th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody className="bg-primary-light text-primary-dark overflow-scroll">
