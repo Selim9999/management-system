@@ -169,13 +169,16 @@ const Tasks = () => {
                   #REF!
                 </th>
                 <th className="bg-primary-dark text-white p-4 text-center">
-                  Technical \ndependencies\nIDs
+                  Technical dependencies IDs
                 </th>
                 <th className="bg-primary-dark text-white p-4 text-center">
-                  Temporal_\ndependencies\nIDs
+                  Temporal dependencies IDs
                 </th>
                 <th className="bg-primary-dark text-white p-4 text-center">
-                  Computed_dependency_IDs
+                  Computed dependency IDs
+                </th>
+                <th className="bg-primary-dark text-white p-4 text-center">
+                  Progress
                 </th>
                 <th className="bg-primary-dark text-white p-4 text-center">
                   Actions

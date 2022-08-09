@@ -6,7 +6,6 @@ const EditableRow = ({ editFormData, handleEditFormChange }) => {
       <td>
         <input
           type="text"
-          required="required"
           placeholder="Enter Id..."
           name="id"
           value={editFormData.id}
@@ -16,7 +15,6 @@ const EditableRow = ({ editFormData, handleEditFormChange }) => {
       <td>
         <input
           type="text"
-          required="required"
           placeholder="Enter Username..."
           name="username"
           value={editFormData.username}
@@ -26,7 +24,6 @@ const EditableRow = ({ editFormData, handleEditFormChange }) => {
       <td>
         <input
           type="text"
-          required="required"
           placeholder="Enter Label..."
           name="label"
           value={editFormData.label}
@@ -36,7 +33,6 @@ const EditableRow = ({ editFormData, handleEditFormChange }) => {
       <td>
         <input
           type="text"
-          required="required"
           placeholder="Enter Sublabel..."
           name="sublabel"
           value={editFormData.sublabel}
@@ -46,7 +42,6 @@ const EditableRow = ({ editFormData, handleEditFormChange }) => {
       <td>
         <input
           type="text"
-          required="required"
           placeholder="Enter Priority..."
           name="priority"
           value={editFormData.priority}
@@ -56,7 +51,6 @@ const EditableRow = ({ editFormData, handleEditFormChange }) => {
       <td>
         <input
           type="text"
-          required="required"
           placeholder="Enter Duration..."
           name="duration"
           value={editFormData.duration}
@@ -66,7 +60,6 @@ const EditableRow = ({ editFormData, handleEditFormChange }) => {
       <td>
         <input
           type="text"
-          required="required"
           placeholder="Enter Duration Confidence..."
           name="duration_confidence"
           value={editFormData.duration_confidence}
@@ -76,7 +69,6 @@ const EditableRow = ({ editFormData, handleEditFormChange }) => {
       <td>
         <input
           type="text"
-          required="required"
           placeholder="Enter Start Date..."
           name="start_date"
           value={editFormData.start_date}
@@ -86,7 +78,6 @@ const EditableRow = ({ editFormData, handleEditFormChange }) => {
       <td>
         <input
           type="text"
-          required="required"
           placeholder="Enter End Date..."
           name="end_date"
           value={editFormData.end_date}
@@ -96,7 +87,6 @@ const EditableRow = ({ editFormData, handleEditFormChange }) => {
       <td>
         <input
           type="text"
-          required="required"
           placeholder="Enter Status..."
           name="status"
           value={editFormData.status}
@@ -106,7 +96,6 @@ const EditableRow = ({ editFormData, handleEditFormChange }) => {
       <td>
         <input
           type="text"
-          required="required"
           placeholder="Enter Complexity..."
           name="complexity"
           value={editFormData.complexity}
@@ -116,7 +105,6 @@ const EditableRow = ({ editFormData, handleEditFormChange }) => {
       <td>
         <input
           type="text"
-          required="required"
           placeholder="Enter Task Group..."
           name="task_group"
           value={editFormData.task_group}
@@ -126,7 +114,6 @@ const EditableRow = ({ editFormData, handleEditFormChange }) => {
       <td>
         <input
           type="text"
-          required="required"
           placeholder="Enter Description..."
           name="description"
           value={editFormData.description}
@@ -136,7 +123,6 @@ const EditableRow = ({ editFormData, handleEditFormChange }) => {
       <td>
         <input
           type="text"
-          required="required"
           placeholder="Enter #REF!..."
           name="ref"
           value={editFormData.ref}
@@ -146,7 +132,6 @@ const EditableRow = ({ editFormData, handleEditFormChange }) => {
       <td>
         <input
           type="text"
-          required="required"
           placeholder="Enter Technical dependencies IDs..."
           name="technical_dependencies"
           value={editFormData.technical_dependencies}
@@ -156,7 +141,6 @@ const EditableRow = ({ editFormData, handleEditFormChange }) => {
       <td>
         <input
           type="text"
-          required="required"
           placeholder="Enter Temporal dependencies IDs..."
           name="temporal_dependencies"
           value={editFormData.temporal_dependencies}
@@ -167,7 +151,6 @@ const EditableRow = ({ editFormData, handleEditFormChange }) => {
         {" "}
         <input
           type="text"
-          required="required"
           placeholder="Enter Computed dependencies IDs..."
           name="computed_dependencies"
           value={editFormData.computed_dependencies}
