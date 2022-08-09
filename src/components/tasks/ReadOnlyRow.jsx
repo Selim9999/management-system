@@ -54,7 +54,7 @@ const ReadOnlyRow = ({ item, index, onDelete, handleEditClick }) => {
             aria-valuenow="75"
             aria-valuemin="0"
             aria-valuemax="100"
-            style={{ width: { valNow } }}
+            style={{ width: valNow }}
           ></div>
         </div>
       </td>
