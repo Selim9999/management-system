@@ -11,17 +11,24 @@ const ReadOnlyRow = ({ item, index, onDelete, handleEditClick }) => {
     today.getMonth() + 1 + "/" + today.getDate() + "/" + today.getFullYear();
   const todate = new Date(date);
   const endDate = new Date(item.end_date);
-  let valNow = (endDate.getDate() - today.getDate()) * 10;
+  const statDate = new Date(item.start_date);
+  let valNow =
+    ((today.getDate() - statDate.getDate() + 1) /
+      (endDate.getDate() - statDate.getDate() + 1)) *
+    100;
 
   if (item.status.toLowerCase() === "in progress" && endDate > todate) {
     classes += "success";
     valNow = valNow.toString() + "%";
-    console.log(valNow);
-  } else if (
-    item.status.toLowerCase() === "not started" ||
-    item.status.toLowerCase() === "issue"
-  ) {
+  } else if (item.status.toLowerCase() === "not started") {
+    classes += "primary";
+    valNow = "1%";
+  } else if (item.status.toLowerCase() === "issue") {
     classes += "warning";
+    valNow = valNow.toString() + "%";
+  } else if (item.status === "finished") {
+    classes += "success";
+    valNow = "100%";
   } else {
     classes += "danger";
   }
