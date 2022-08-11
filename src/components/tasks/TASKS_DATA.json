@@ -1,7 +1,7 @@
 [{
     "id": 1,
-    "task_id": "Task Id",
-    "label": "DevOps",
+    "username": "Task Id",
+    "label": "",
     "sublabel": "Docker",
     "priority": "2 - High priority",
     "duration": "0.5",
@@ -15,13 +15,13 @@
     "ref": "aeaeae",
     "technical_dependencies": "aaaaaaaa",
     "temporal_dependencies": "",
-    "computed_dependencies": "",
-    "new_column": "eeaea"
+    "computed_dependencies": ""
+
   
 },
 {
     "id": 2,
-    "task_id": "Janko",
+    "username": "Janko",
     "label": "",
     "sublabel": "",
     "priority": "",
@@ -36,13 +36,13 @@
     "ref": "",
     "technical_dependencies": "",
     "temporal_dependencies": "",
-    "computed_dependencies": "",
-    "new_column": "eaea"
+    "computed_dependencies": ""
+    
     
 },
 {
     "id": 3,
-    "task_id": "Mihajlo",
+    "username": "Mihajlo",
     "label": "",
     "sublabel": "",
     "priority": "",
@@ -57,13 +57,13 @@
     "ref": "",
     "technical_dependencies": "",
     "temporal_dependencies": "",
-    "computed_dependencies": "",
-    "new_column": "eaea"
+    "computed_dependencies": ""
+    
    
 },
 {
     "id": 4,
-    "task_id": "Marija",
+    "username": "Marija",
     "label": "",
     "sublabel": "",
     "priority": "",
@@ -78,13 +78,13 @@
     "ref": "",
     "technical_dependencies": "",
     "temporal_dependencies": "",
-    "computed_dependencies": "",
-    "new_column": "eaea"
+    "computed_dependencies": ""
+    
   
 },
 {
     "id": 5,
-    "task_id": "Dragan",
+    "username": "Dragan",
     "label": "",
     "sublabel": "",
     "priority": "",
@@ -99,13 +99,13 @@
     "ref": "",
     "technical_dependencies": "",
     "temporal_dependencies": "",
-    "computed_dependencies": "69",
-    "new_column": "eaea"
+    "computed_dependencies": "69"
+    
    
 },
 {
     "id": 6,
-    "task_id": "Gordana",
+    "username": "Gordana",
     "label": "",
     "sublabel": "",
     "priority": "",
@@ -120,13 +120,13 @@
     "ref": "",
     "technical_dependencies": "",
     "temporal_dependencies": "",
-    "computed_dependencies": "59",
-    "new_column": "eaea"
+    "computed_dependencies": "59"
+    
     
 },
 {
     "id": 7,
-    "task_id": "Bassem",
+    "username": "Bassem",
     "label": "Jest testing",
     "sublabel": "",
     "priority": "",
@@ -141,13 +141,13 @@
     "ref": "",
     "technical_dependencies": "45",
     "temporal_dependencies": "NONE",
-    "computed_dependencies": "74",
-    "new_column": "eeee"
+    "computed_dependencies": "74"
+    
     
 },
 {
     "id": 8,
-    "task_id": "Naima",
+    "username": "Naima",
     "label": "",
     "sublabel": "",
     "priority": "",
@@ -162,7 +162,7 @@
     "ref": "",
     "technical_dependencies": "",
     "temporal_dependencies": "",
-    "computed_dependencies": "1156",
-    "new_column": "eaea"   
+    "computed_dependencies": "1156"
+    
 }
 ]

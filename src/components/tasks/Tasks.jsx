@@ -113,19 +113,14 @@ const Tasks = () => {
       <div>
         <h1 style={{ color: "#f21344", fontWeight: "900" }}>Tasks</h1>
       </div>
-      <div className="add-button">
-        <button
-          style={{ backgroundColor: "#a6a5a4", color: "white" }}
-          className="btn"
-        >
-          <AddIcon className="me-3" /> New Task
-        </button>
-      </div>
       <div className="react-table mt-5">
         <form onSubmit={handleEditFormSubmit}>
           <table>
             <thead>
               <tr>
+                <th className="bg-primary-dark text-white p-4 text-center">
+                  Actions
+                </th>
                 <th className="bg-primary-dark text-white p-4 text-center">
                   Id
                 </th>
@@ -177,10 +172,6 @@ const Tasks = () => {
                 <th className="bg-primary-dark text-white p-4 text-center">
                   Computed_dependency_IDs
                 </th>
-                <th className="bg-primary-dark text-white p-4 text-center">
-                  new column
-                </th>
-                <th>Actions</th>
               </tr>
             </thead>
             <tbody className="bg-primary-light text-primary-dark overflow-scroll">
@@ -188,12 +179,15 @@ const Tasks = () => {
                 <>
                   {editDataId === item.id ? (
                     <EditableRow
+                      item={item}
                       editFormData={editFormData}
                       handleEditFormChange={handleEditFormChange}
                     />
                   ) : (
                     <ReadOnlyRow
                       item={item}
+                      data={data}
+                      setData={setData}
                       index={index}
                       onDelete={onDelete}
                       handleEditClick={handleEditClick}
