@@ -4,8 +4,19 @@ import AddIcon from "@mui/icons-material/Add";
 import ReadOnlyRow from "./ReadOnlyRow";
 import EditableRow from "./EditableRow";
 import "./Tasks.css";
-
+import Pagination from "../../utils/pagination";
+import { paginate } from "../../utils/paginate";
 const Tasks = () => {
+  /////////////////Pagination related////////////////////////////
+  const pageSize = 2;
+  const totalCount = 8;
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+  const [currentPage, setCurrentPage] = useState(1);
+  const tasks = paginate(TASKS_DATA, currentPage, pageSize);
+  /////////////////////////////////////////////////////////
+
   const [data, setData] = useState(TASKS_DATA);
 
   const [editDataId, setEditDataId] = useState(null);
@@ -186,7 +197,7 @@ const Tasks = () => {
               </tr>
             </thead>
             <tbody className="bg-primary-light text-primary-dark overflow-scroll">
-              {data.map((item, index) => (
+              {tasks.map((item, index) => (
                 <>
                   {editDataId === item.id ? (
                     <EditableRow
@@ -207,6 +218,12 @@ const Tasks = () => {
           </table>
         </form>
       </div>
+      <Pagination
+        itemsCount={totalCount}
+        pageSize={pageSize}
+        currentPage={currentPage}
+        onPageChange={handlePageChange}
+      />
     </div>
   );
 };

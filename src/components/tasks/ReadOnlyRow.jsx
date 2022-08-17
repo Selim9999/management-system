@@ -3,6 +3,7 @@ import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import Timeline from "../timeline/timeline";
 
 const ReadOnlyRow = ({ item, index, onDelete, handleEditClick }) => {
   let classes = "progress-bar progress-bar-striped progress-bar-animated bg-";
@@ -64,6 +65,8 @@ const ReadOnlyRow = ({ item, index, onDelete, handleEditClick }) => {
             style={{ width: valNow }}
           ></div>
         </div>
+        <br />
+        <Timeline item={item} />
       </td>
       <td>
         <div className="d-flex gap-2">
