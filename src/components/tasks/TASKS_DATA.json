@@ -20,6 +20,7 @@
     "temporal_dependencies": "",
     "computed_dependencies": ""
 
+
   
 },
 {
@@ -35,7 +36,7 @@
     "duration_confidence": "",
     "start_date": "8/9/2022",
     "end_date": "8/9/2022",
-    "status": "",
+    "status": "finished",
     "complexity": "",
     "task_group": "",
     "description": "Dockerize one Yo services and show Gordana how to do the rest",
@@ -129,9 +130,9 @@
     "priority": "",
     "duration": "",
     "duration_confidence": "",
-    "start_date": "8/16/2022",
-    "end_date": "8/16/2022",
-    "status": "",
+    "start_date": "8/1/2022",
+    "end_date": "8/10/2022",
+    "status": "issue",
     "complexity": "",
     "task_group": "",
     "description": "Dockerize the rest of Yo services - talk to Janko",
@@ -153,9 +154,9 @@
     "priority": "",
     "duration": "",
     "duration_confidence": "Guess/have no idea",
-    "start_date": "7/29/2022",
-    "end_date": "8/1/2022",
-    "status": "Not started",
+    "start_date": "8/7/2022",
+    "end_date": "8/16/2022",
+    "status": "Blocked",
     "complexity": "",
     "task_group": "",
     "description": "Convert your YS projects to Spring boot",

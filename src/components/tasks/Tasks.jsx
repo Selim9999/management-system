@@ -5,8 +5,19 @@ import ReadOnlyRow from "./ReadOnlyRow";
 import EditableRow from "./EditableRow";
 import { useDispatch, useSelector } from "react-redux";
 import "./Tasks.css";
-
+import Pagination from "../../utils/pagination";
+import { paginate } from "../../utils/paginate";
 const Tasks = () => {
+  /////////////////Pagination related////////////////////////////
+  const pageSize = 2;
+  const totalCount = 8;
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+  const [currentPage, setCurrentPage] = useState(1);
+  const tasks = paginate(TASKS_DATA, currentPage, pageSize);
+  /////////////////////////////////////////////////////////
+
   const [data, setData] = useState(TASKS_DATA);
   const dispatch = useDispatch();
   const reportsList = useSelector((state) => state.reports.value);
@@ -204,18 +215,21 @@ const Tasks = () => {
                   #REF!
                 </th>
                 <th className="bg-primary-dark text-white p-4 text-center">
-                  Technical \ndependencies\nIDs
+                  Technical dependencies IDs
                 </th>
                 <th className="bg-primary-dark text-white p-4 text-center">
-                  Temporal_\ndependencies\nIDs
+                  Temporal dependencies IDs
                 </th>
                 <th className="bg-primary-dark text-white p-4 text-center">
-                  Computed_dependency_IDs
+                  Computed dependency IDs
+                </th>
+                <th className="bg-primary-dark text-white p-4 text-center">
+                  Progress
                 </th>
               </tr>
             </thead>
             <tbody className="bg-primary-light text-primary-dark overflow-scroll">
-              {data.map((item, index) => (
+              {tasks.map((item, index) => (
                 <>
                   {editDataId === item.id ? (
                     <EditableRow
@@ -239,6 +253,12 @@ const Tasks = () => {
           </table>
         </form>
       </div>
+      <Pagination
+        itemsCount={totalCount}
+        pageSize={pageSize}
+        currentPage={currentPage}
+        onPageChange={handlePageChange}
+      />
     </div>
   );
 };

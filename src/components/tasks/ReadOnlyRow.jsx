@@ -3,6 +3,7 @@ import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import Timeline from "../timeline/timeline";
 import AddTaskForm from "./AddTaskForm";
 import { useState } from "react";
 
@@ -19,6 +20,34 @@ const ReadOnlyRow = ({
   const [downButtonClicked, setDownButtonClicked] = useState(false);
   const [indexx, setIndexx] = useState(0);
   const [id, setId] = useState(0);
+
+  let classes = "progress-bar progress-bar-striped progress-bar-animated bg-";
+  let today = new Date();
+  let date =
+    today.getMonth() + 1 + "/" + today.getDate() + "/" + today.getFullYear();
+  const todate = new Date(date);
+  const endDate = new Date(item.end_date);
+  const statDate = new Date(item.start_date);
+  let valNow =
+    ((today.getDate() - statDate.getDate() + 1) /
+      (endDate.getDate() - statDate.getDate() + 1)) *
+    100;
+
+  if (item.status.toLowerCase() === "in progress" && endDate > todate) {
+    classes += "success";
+    valNow = valNow.toString() + "%";
+  } else if (item.status.toLowerCase() === "not started") {
+    classes += "primary";
+    valNow = "1%";
+  } else if (item.status.toLowerCase() === "issue") {
+    classes += "warning";
+    valNow = valNow.toString() + "%";
+  } else if (item.status === "finished") {
+    classes += "success";
+    valNow = "100%";
+  } else {
+    classes += "danger";
+  }
 
   return (
     <>
@@ -176,6 +205,21 @@ const ReadOnlyRow = ({
           </select>
         </td>
         <td>{item.computed_dependencies}</td>
+        <td>
+          <div className="progress">
+            <div
+              className={classes}
+              role="progressbar"
+              aria-label="Animated striped example"
+              aria-valuenow="75"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              style={{ width: valNow }}
+            ></div>
+          </div>
+          <br />
+          <Timeline item={item} />
+        </td>
       </tr>
       {addTaskForm === true ? (
         <AddTaskForm
