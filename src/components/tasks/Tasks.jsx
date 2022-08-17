@@ -3,6 +3,7 @@ import TASKS_DATA from "./TASKS_DATA.json";
 import AddIcon from "@mui/icons-material/Add";
 import ReadOnlyRow from "./ReadOnlyRow";
 import EditableRow from "./EditableRow";
+import { useDispatch, useSelector } from "react-redux";
 import "./Tasks.css";
 import Pagination from "../../utils/pagination";
 import { paginate } from "../../utils/paginate";
@@ -18,12 +19,35 @@ const Tasks = () => {
   /////////////////////////////////////////////////////////
 
   const [data, setData] = useState(TASKS_DATA);
+  const dispatch = useDispatch();
+  const reportsList = useSelector((state) => state.reports.value);
+
+  useEffect(() => {
+    console.log(reportsList);
+  }, [reportsList]);
+
+  useEffect(() => {
+    //if reportsList id is equal to data id then make data.blocked = reportsList.blocked and data.issues = reportsList.issues and data.help = reportsList.help
+    data.map((item) => {
+      for (let i = 0; i < reportsList.length; i++) {
+        if (item.id === reportsList[i].id) {
+          item.blocked = reportsList[i].blockings;
+          item.issues = reportsList[i].issues;
+          item.help = reportsList[i].help;
+        }
+      }
+    });
+    setData(data);
+  }, [reportsList]);
 
   const [editDataId, setEditDataId] = useState(null);
 
   const [editFormData, setEditFormData] = useState({
     id: "",
     username: "",
+    blocked: "",
+    issues: "",
+    help: "",
     label: "",
     sublabel: "",
     priority: "",
@@ -53,6 +77,10 @@ const Tasks = () => {
     const formValues = {
       id: item.id,
       username: item.username,
+      blocked: item.blocked,
+      issues: item.issues,
+      help: item.help,
+
       label: item.label,
       sublabel: item.sublabel,
       priority: item.priority,
@@ -92,6 +120,9 @@ const Tasks = () => {
     const editedData = {
       id: editDataId,
       username: editFormData.username,
+      blocked: editFormData.blocked,
+      issues: editFormData.issues,
+      help: editFormData.help,
       label: editFormData.label,
       sublabel: editFormData.sublabel,
       priority: editFormData.priority,
@@ -124,24 +155,28 @@ const Tasks = () => {
       <div>
         <h1 style={{ color: "#f21344", fontWeight: "900" }}>Tasks</h1>
       </div>
-      <div className="add-button">
-        <button
-          style={{ backgroundColor: "#a6a5a4", color: "white" }}
-          className="btn"
-        >
-          <AddIcon className="me-3" /> New Task
-        </button>
-      </div>
       <div className="react-table mt-5">
         <form onSubmit={handleEditFormSubmit}>
           <table>
             <thead>
               <tr>
                 <th className="bg-primary-dark text-white p-4 text-center">
+                  Actions
+                </th>
+                <th className="bg-primary-dark text-white p-4 text-center">
                   Id
                 </th>
                 <th className="bg-primary-dark text-white p-4 text-center">
                   Username
+                </th>
+                <th className="bg-primary-dark text-white p-4 text-center">
+                  Blocked
+                </th>
+                <th className="bg-primary-dark text-white p-4 text-center">
+                  Issues
+                </th>
+                <th className="bg-primary-dark text-white p-4 text-center">
+                  Help
                 </th>
                 <th className="bg-primary-dark text-white p-4 text-center">
                   Label
@@ -191,9 +226,6 @@ const Tasks = () => {
                 <th className="bg-primary-dark text-white p-4 text-center">
                   Progress
                 </th>
-                <th className="bg-primary-dark text-white p-4 text-center">
-                  Actions
-                </th>
               </tr>
             </thead>
             <tbody className="bg-primary-light text-primary-dark overflow-scroll">
@@ -201,12 +233,15 @@ const Tasks = () => {
                 <>
                   {editDataId === item.id ? (
                     <EditableRow
+                      item={item}
                       editFormData={editFormData}
                       handleEditFormChange={handleEditFormChange}
                     />
                   ) : (
                     <ReadOnlyRow
                       item={item}
+                      data={data}
+                      setData={setData}
                       index={index}
                       onDelete={onDelete}
                       handleEditClick={handleEditClick}

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addReport, deleteReport } from "../../features/reports/Reports";
 import AddCircleOutlinedIcon from "@mui/icons-material/AddCircleOutlined";
 import IssuesList from "../reports/issueslist/IssuesList.jsx";
+import Help from "./help/Help";
 
 const Reports = () => {
   const dispatch = useDispatch();
@@ -13,10 +14,14 @@ const Reports = () => {
   const [hours, setHours] = useState("");
   const [issues, setIssues] = useState("");
   const [blockings, setBlockings] = useState("");
+  const [help, setHelp] = useState("");
   const [next, setNext] = useState("");
   const [statistics, setStatistics] = useState("");
 
+  const [openHelpPlus, setOpenHelpPlus] = useState(false);
+
   const [issuesForm, setIssuesForm] = useState(false);
+  const [helpForm, setHelpForm] = useState(false);
 
   const [clicked, setClicked] = useState(false);
 
@@ -109,6 +114,36 @@ const Reports = () => {
             </div>
             <div className="card" style={{ width: "60%" }}>
               <div className="card-body d-grid gap-4">
+                <h5 className="card-title">Need help ?</h5>
+                <select
+                  onChange={(e) => {
+                    setOpenHelpPlus(e.target.value);
+                    setHelp(e.target.value);
+                  }}
+                >
+                  <option value="Select">Select</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+                {openHelpPlus === "Yes" ? (
+                  <AddCircleOutlinedIcon
+                    style={{
+                      fontSize: "3rem",
+                      cursor: "pointer",
+                      color: "#4d4c4c",
+                    }}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setHelpForm(true);
+                    }}
+                  />
+                ) : (
+                  ""
+                )}
+              </div>
+            </div>
+            <div className="card" style={{ width: "60%" }}>
+              <div className="card-body d-grid gap-4">
                 <h5 className="card-title">What am i going to do next</h5>
                 <input
                   type="text"
@@ -145,6 +180,7 @@ const Reports = () => {
                     hours,
                     issues,
                     blockings,
+                    help,
                     next,
                     statistics,
                   })
@@ -156,7 +192,22 @@ const Reports = () => {
             </button>
           </form>
           {issuesForm === true ? (
-            <IssuesList title="Issues" setIssuesForm={setIssuesForm} />
+            <IssuesList
+              title="Issues"
+              setIssuesForm={setIssuesForm}
+              issues={issues}
+              setIssues={setIssues}
+            />
+          ) : (
+            ""
+          )}
+          {helpForm === true ? (
+            <Help
+              title="Help"
+              setHelpForm={setHelpForm}
+              help={help}
+              setHelp={setHelp}
+            />
           ) : (
             ""
           )}
@@ -172,6 +223,7 @@ const Reports = () => {
                       <th>Hours</th>
                       <th>Issues</th>
                       <th>Blockings</th>
+                      <th>Need Help</th>
                       <th>Next</th>
                       <th>Statistics</th>
                     </tr>
@@ -183,6 +235,7 @@ const Reports = () => {
                         <td>{report.hours}</td>
                         <td>{report.issues}</td>
                         <td>{report.blockings}</td>
+                        <td>{report.help}</td>
                         <td>{report.next}</td>
                         <td>{report.statistics}</td>
                         <td>

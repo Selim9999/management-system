@@ -1,27 +1,34 @@
 [{
     "id": 1,
-    "task_id": "Task Id",
-    "label": "DevOps",
+    "username": "Task Id",
+    "blocked": "",
+    "issues": "",
+    "help": "",
+    "label": "",
     "sublabel": "Docker",
-    "priority": "2 - High priority",
+    "priority": "",
     "duration": "0.5",
-    "duration_confidence": "Guess/have no idea",
+    "duration_confidence": "",
     "start_date": "1/12/2022",
     "end_date": "1/12/2022",
-    "status": "In progress",
-    "complexity": "Medium",
+    "status": "",
+    "complexity": "",
     "task_group": "Task group",
     "description": "Docker repo certificates update",
     "ref": "aeaeae",
-    "technical_dependencies": "aaaaaaaa",
+    "technical_dependencies": "",
     "temporal_dependencies": "",
-    "computed_dependencies": "", 
-    "actions": ""
+    "computed_dependencies": ""
+
+
   
 },
 {
     "id": 2,
-    "task_id": "Janko",
+    "username": "Janko",
+    "blocked": "",
+    "issues": "",
+    "help": "",
     "label": "",
     "sublabel": "",
     "priority": "",
@@ -36,13 +43,16 @@
     "ref": "",
     "technical_dependencies": "",
     "temporal_dependencies": "",
-    "computed_dependencies": "",
-    "actions": ""
+    "computed_dependencies": ""
+    
     
 },
 {
     "id": 3,
-    "task_id": "Mihajlo",
+    "username": "Mihajlo",
+    "blocked": "",
+    "issues": "",
+    "help": "",
     "label": "",
     "sublabel": "",
     "priority": "",
@@ -57,13 +67,16 @@
     "ref": "",
     "technical_dependencies": "",
     "temporal_dependencies": "",
-    "computed_dependencies": "",
-    "actions": ""
+    "computed_dependencies": ""
+    
    
 },
 {
     "id": 4,
-    "task_id": "Marija",
+    "username": "Marija",
+    "blocked": "",
+    "issues": "",
+    "help": "",
     "label": "",
     "sublabel": "",
     "priority": "",
@@ -78,13 +91,16 @@
     "ref": "",
     "technical_dependencies": "",
     "temporal_dependencies": "",
-    "computed_dependencies": "",
-    "actions": ""
+    "computed_dependencies": ""
+    
   
 },
 {
     "id": 5,
-    "task_id": "Dragan",
+    "username": "Dragan",
+    "blocked": "",
+    "issues": "",
+    "help": "",
     "label": "",
     "sublabel": "",
     "priority": "",
@@ -99,13 +115,16 @@
     "ref": "",
     "technical_dependencies": "",
     "temporal_dependencies": "",
-    "computed_dependencies": "69",
-    "actions": ""
+    "computed_dependencies": "69"
+    
    
 },
 {
     "id": 6,
-    "task_id": "Gordana",
+    "username": "Gordana",
+    "blocked": "",
+    "issues": "",
+    "help": "",
     "label": "",
     "sublabel": "",
     "priority": "",
@@ -120,13 +139,16 @@
     "ref": "",
     "technical_dependencies": "",
     "temporal_dependencies": "",
-    "computed_dependencies": "59",
-    "actions": ""
+    "computed_dependencies": "59"
+    
     
 },
 {
     "id": 7,
-    "task_id": "Bassem",
+    "username": "Bassem",
+    "blocked": "",
+    "issues": "",
+    "help": "",
     "label": "Jest testing",
     "sublabel": "",
     "priority": "",
@@ -141,13 +163,16 @@
     "ref": "",
     "technical_dependencies": "45",
     "temporal_dependencies": "NONE",
-    "computed_dependencies": "74",
-    "actions": ""
+    "computed_dependencies": "74"
+    
     
 },
 {
     "id": 8,
-    "task_id": "Naima",
+    "username": "Naima",
+    "blocked": "",
+    "issues": "",
+    "help": "",
     "label": "",
     "sublabel": "",
     "priority": "",
@@ -162,8 +187,7 @@
     "ref": "",
     "technical_dependencies": "",
     "temporal_dependencies": "",
-    "computed_dependencies": "1156",
-    "actions": ""
+    "computed_dependencies": "1156"
     
 }
 ]

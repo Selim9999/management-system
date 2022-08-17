@@ -4,7 +4,16 @@ import { useState } from "react";
 import IssuesPulldown from "./issuespulldown/IssuesPulldown";
 
 const IssuesBox = (props) => {
-  const { title, issuesList1, setOpenIssueBox } = props;
+  const {
+    title,
+    setOpenIssueBox,
+    issueName,
+    issuesList,
+    setIssuesList,
+    indexx,
+    issues,
+    setIssues,
+  } = props;
   const [openDependanciesList, setOpenDependanciesList] = useState(false);
   const [openIssuesPulldown, setOpenIssuesPulldown] = useState(false);
 
@@ -34,23 +43,20 @@ const IssuesBox = (props) => {
               <div className="text">
                 <h5>Choose current issue or a dependancy</h5>
               </div>
-              {issuesList1.map((issue, index) => {
-                return (
-                  <div>
-                    <button
-                      type="button"
-                      className="btn btn-primary"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                      onClick={() => {
-                        setOpenIssuesPulldown(true);
-                      }}
-                    >
-                      {issue.name}
-                    </button>
-                  </div>
-                );
-              })}
+              <div>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                  onClick={() => {
+                    setOpenIssuesPulldown(true);
+                  }}
+                >
+                  {issueName}
+                </button>
+              </div>
+
               <div>
                 <button
                   type="button"
@@ -66,8 +72,11 @@ const IssuesBox = (props) => {
             {openDependanciesList ? (
               <DependenciesList
                 title="Dependancies"
-                issuesList1={issuesList1}
+                issueName={issueName}
+                issuesList={issuesList}
+                setIssuesList={setIssuesList}
                 setOpenDependanciesList={setOpenDependanciesList}
+                indexx={indexx}
               />
             ) : (
               ""
@@ -76,6 +85,8 @@ const IssuesBox = (props) => {
               <IssuesPulldown
                 title="Issues"
                 setOpenIssuesPulldown={setOpenIssuesPulldown}
+                issues={issues}
+                setIssues={setIssues}
               />
             ) : (
               ""

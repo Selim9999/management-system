@@ -1,20 +1,21 @@
+import { set } from "date-fns/esm";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import IssuesPulldown from "../issuespulldown/IssuesPulldown";
 
 const DependenciesList = (props) => {
-  const { title, issuesList1, setOpenDependanciesList } = props;
+  const { title, setOpenDependanciesList, issuesList, setIssuesList, indexx } =
+    props;
   const [openIssuesPulldown, setOpenIssuesPulldown] = useState(false);
 
   //make a new array for dependancies list inside the issuesList1
   const [dependanciesList, setDependanciesList] = useState([]);
-  //extract the dependancies from the issuesList1 and put it in dependanciesList
+
+  //set dependanciesList to the dependancies of the issue selected
   useEffect(() => {
-    issuesList1.map((issue) => {
-      setDependanciesList(issue.dependancies);
-    });
-  }, [issuesList1]);
-  //console.log(dependanciesList);
+    console.log(issuesList[indexx].dependancies);
+    setDependanciesList(issuesList[indexx].dependancies);
+  }, []);
 
   return (
     <div

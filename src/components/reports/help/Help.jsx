@@ -1,11 +1,7 @@
-import React from "react";
-import { Issues } from "./Issues.js";
-import { useState } from "react";
+import React, { useState } from "react";
 
-const IssuesPulldown = (props) => {
-  const { title, setOpenIssuesPulldown, issues, setIssues } = props;
-  const [issuesList, setIssuesList] = useState(Issues);
-  const [selectedIssue, setSelectedIssue] = useState("");
+const Help = ({ title, setHelpForm, help, setHelp }) => {
+  const [description, setDescription] = useState("");
 
   return (
     <div
@@ -25,27 +21,22 @@ const IssuesPulldown = (props) => {
               className="btn-close"
               data-bs-dismiss="modal"
               aria-label="Close"
-              onClick={() => setOpenIssuesPulldown(false)}
+              onClick={() => {
+                setHelpForm(false);
+              }}
             ></button>
           </div>
           <div className="modal-body">
             <form className="d-grid gap-3">
-              <select
-                className="form-control"
-                id="exampleFormControlSelect1"
-                onChange={(e) => {
-                  setSelectedIssue(e.target.value);
-                }}
-              >
-                {issuesList.map((issue, index) => {
-                  return <option>{issue.name}</option>;
-                })}
-              </select>
+              <label htmlFor="Description">Description</label>
               <textarea
                 className="form-control"
-                id="exampleFormControlTextarea1"
+                id="Description"
                 rows="3"
-                placeholder="Description"
+                placeholder="What is the problem?"
+                onChange={(e) => {
+                  setDescription(e.target.value);
+                }}
               ></textarea>
               <button
                 style={{ width: "10rem" }}
@@ -53,8 +44,8 @@ const IssuesPulldown = (props) => {
                 className="btn btn-primary"
                 data-bs-dismiss="modal"
                 onClick={() => {
-                  setIssues(issues + " " + selectedIssue);
-                  setOpenIssuesPulldown(false);
+                  setHelp(help + ", " + description);
+                  setHelpForm(false);
                 }}
               >
                 Submit
@@ -68,4 +59,4 @@ const IssuesPulldown = (props) => {
   );
 };
 
-export default IssuesPulldown;
+export default Help;
