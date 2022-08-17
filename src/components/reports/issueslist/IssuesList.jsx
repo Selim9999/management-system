@@ -4,9 +4,10 @@ import IssuesBox from "./issuesbox/IssuesBox";
 import { IssuesListt } from "./IssuesListt";
 
 const IssuesList = (props) => {
-  const { title, setIssuesForm } = props;
+  const { title, setIssuesForm, issues, setIssues } = props;
   const [issuesList, setIssuesList] = useState(IssuesListt);
-  const [issuesList1, setIssuesList1] = useState([]);
+  const [issueName, setIssueName] = useState("");
+  const [indexx, setIndexx] = useState(0);
   const [openIssueBox, setOpenIssueBox] = useState(false);
 
   return (
@@ -44,14 +45,12 @@ const IssuesList = (props) => {
                         className="btn btn-primary"
                         data-bs-dismiss="modal"
                         onClick={() => {
-                          //filter the issuesList excluding the issue selected and set it to issuesList1
-                          setIssuesList1(
-                            issuesList.filter(
-                              (issue1) => issue1.name == issue.name
-                            )
-                          );
+                          console.log(index);
+                          console.log(issue.name);
 
-                          console.log(issuesList1);
+                          setIssues(issue.name);
+                          setIndexx(index);
+                          setIssueName(issue.name);
 
                           setOpenIssueBox(true);
                         }}
@@ -66,8 +65,13 @@ const IssuesList = (props) => {
             {openIssueBox ? (
               <IssuesBox
                 title="Issue Box"
-                issuesList1={issuesList1}
                 setOpenIssueBox={setOpenIssueBox}
+                issuesList={issuesList}
+                setIssuesList={setIssuesList}
+                issueName={issueName}
+                indexx={indexx}
+                setIssues={setIssues}
+                issues={issues}
               />
             ) : (
               ""

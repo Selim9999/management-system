@@ -5,6 +5,7 @@ export const ReportsData = [
     hours: "8",
     issues: "design",
     blockings: "-",
+    help: "",
     next: "-",
     statistics: "completed",
   },

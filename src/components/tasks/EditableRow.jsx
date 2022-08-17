@@ -29,6 +29,36 @@ const EditableRow = ({ editFormData, handleEditFormChange, item }) => {
         />
       </td>
       <td>
+        <input
+          type="text"
+          required="required"
+          placeholder="Enter Username..."
+          name="blocked"
+          value={editFormData.blocked}
+          onChange={handleEditFormChange}
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          required="required"
+          placeholder="Enter Username..."
+          name="issues"
+          value={editFormData.issues}
+          onChange={handleEditFormChange}
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          required="required"
+          placeholder="Enter Username..."
+          name="help"
+          value={editFormData.help}
+          onChange={handleEditFormChange}
+        />
+      </td>
+      <td>
         <select
           name="label"
           value={editFormData.label}

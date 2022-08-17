@@ -3,16 +3,40 @@ import TASKS_DATA from "./TASKS_DATA.json";
 import AddIcon from "@mui/icons-material/Add";
 import ReadOnlyRow from "./ReadOnlyRow";
 import EditableRow from "./EditableRow";
+import { useDispatch, useSelector } from "react-redux";
 import "./Tasks.css";
 
 const Tasks = () => {
   const [data, setData] = useState(TASKS_DATA);
+  const dispatch = useDispatch();
+  const reportsList = useSelector((state) => state.reports.value);
+
+  useEffect(() => {
+    console.log(reportsList);
+  }, [reportsList]);
+
+  useEffect(() => {
+    //if reportsList id is equal to data id then make data.blocked = reportsList.blocked and data.issues = reportsList.issues and data.help = reportsList.help
+    data.map((item) => {
+      for (let i = 0; i < reportsList.length; i++) {
+        if (item.id === reportsList[i].id) {
+          item.blocked = reportsList[i].blockings;
+          item.issues = reportsList[i].issues;
+          item.help = reportsList[i].help;
+        }
+      }
+    });
+    setData(data);
+  }, [reportsList]);
 
   const [editDataId, setEditDataId] = useState(null);
 
   const [editFormData, setEditFormData] = useState({
     id: "",
     username: "",
+    blocked: "",
+    issues: "",
+    help: "",
     label: "",
     sublabel: "",
     priority: "",
@@ -42,6 +66,10 @@ const Tasks = () => {
     const formValues = {
       id: item.id,
       username: item.username,
+      blocked: item.blocked,
+      issues: item.issues,
+      help: item.help,
+
       label: item.label,
       sublabel: item.sublabel,
       priority: item.priority,
@@ -81,6 +109,9 @@ const Tasks = () => {
     const editedData = {
       id: editDataId,
       username: editFormData.username,
+      blocked: editFormData.blocked,
+      issues: editFormData.issues,
+      help: editFormData.help,
       label: editFormData.label,
       sublabel: editFormData.sublabel,
       priority: editFormData.priority,
@@ -126,6 +157,15 @@ const Tasks = () => {
                 </th>
                 <th className="bg-primary-dark text-white p-4 text-center">
                   Username
+                </th>
+                <th className="bg-primary-dark text-white p-4 text-center">
+                  Blocked
+                </th>
+                <th className="bg-primary-dark text-white p-4 text-center">
+                  Issues
+                </th>
+                <th className="bg-primary-dark text-white p-4 text-center">
+                  Help
                 </th>
                 <th className="bg-primary-dark text-white p-4 text-center">
                   Label
